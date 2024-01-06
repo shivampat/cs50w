@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block nav %}
+
+{% for e in entries %}
+
+<div>
+    <a href="/wiki/article/{{e}}">{{e}}</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}
+
+{% block body %}
+{{ entry | safe}}
+{% endblock %}
+

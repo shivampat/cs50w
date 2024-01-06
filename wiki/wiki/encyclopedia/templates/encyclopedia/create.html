@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Article
+{% endblock %}
+
+{% block nav %}
+{% for e in entries %}
+<div>
+    <a href="/wiki/article/{{e}}">{{e}}</a>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block body %}
+<h1>Create New Article</h1>
+<div>
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Article Title" name="articleTitle" maxlength="64" style="width: 256px;"> <br>
+        <textarea style="width: 500px; height: 500px" name="articleBody"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
